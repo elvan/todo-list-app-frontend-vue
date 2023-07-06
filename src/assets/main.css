@@ -1,35 +1,56 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+.form-check-input.completed {
+  opacity: 0.5;
+  filter: none;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.completed {
+  color: #9ca3af;
+  text-decoration: line-through;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.task-date {
+  padding: 0 2px;
+  color: #6b7280;
+  font-size: 11px;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.editable-task {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.editable-task:focus {
+  outline: none !important;
+}
+
+.edit-item input[type='text'] {
+  color: #999;
+}
+
+.list-group-item:hover .task-actions {
+  opacity: 1;
+  visibility: visible;
+}
+
+.task-actions {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  right: 130px;
+  transition: visibility 0.2s, opacity 0.3s linear;
+  transform: translateY(-50%);
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  font-size: 10px;
+  line-height: 1.42857;
+  text-align: center;
 }
