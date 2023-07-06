@@ -1,0 +1,12 @@
+{
+  "include": [
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "exclude": [],
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": "./"
+  }
+}
