@@ -24,9 +24,6 @@
                     class="ms-2 flex-grow-1"
                     title="Double click the text to edit or remove"
                   >
-                    <!-- <div class="relative">
-                                            <input class="editable-task" type="text" />
-                                        </div> -->
                     <span>My First task</span>
                   </div>
                   <div class="task-date">24 Feb 12:00</div>
@@ -71,3 +68,13 @@
     </div>
   </main>
 </template>
+
+<script setup>
+import { onMounted } from 'vue';
+import { allTasks } from '../http/task-api';
+
+onMounted(async () => {
+  const { data } = await allTasks();
+  console.log(data);
+});
+</script>
