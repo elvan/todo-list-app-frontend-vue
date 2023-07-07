@@ -45,7 +45,6 @@ import { computed, onMounted, ref } from 'vue';
 import NewTask from '../components/tasks/NewTask.vue';
 import Tasks from '../components/tasks/Tasks.vue';
 import {
-  allTasks,
   completeTask,
   createTask,
   removeTask,
@@ -55,12 +54,12 @@ import { useTaskStore } from '../stores/task';
 
 const store = useTaskStore();
 const { completedTasks, uncompletedTasks } = storeToRefs(store);
+const { fetchAllTasks } = store;
 
 const tasks = ref([]);
 
 onMounted(async () => {
-  const { data } = await allTasks();
-  tasks.value = data.data;
+  await fetchAllTasks();
 });
 
 const showToggleCompletedBtn = computed(
