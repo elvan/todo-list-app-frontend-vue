@@ -7,8 +7,9 @@ const router = createRouter({
   history: createWebHistory(),
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach(async (to, from) => {
   const store = useAuthStore();
+  await store.fetchUser();
   if (to.meta.auth && !store.isLoggedIn) {
     return {
       name: 'login',
@@ -16,6 +17,8 @@ router.beforeEach((to, from) => {
         redirect: to.fullPath,
       },
     };
+  } else if (to.meta.guest && store.isLoggedIn) {
+    return { name: 'tasks' };
   }
 });
 
